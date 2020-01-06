@@ -1,5 +1,6 @@
 <?php require_once("../resources/config.php"); ?>
 
+
 <?php include(TEMPLATE_FRONT . SAM ."header.php");?>
 
     <!-- Page Content -->
@@ -28,18 +29,11 @@
                             <div class="caption">
                                 <h4 class="pull-right">$74.99</h4>
                                 <h4><a href="#">Third product</a></h4>
-                                <p>This is a short description </p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                                <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
+
                             </div>
-                            <div class="ratings">
-                                <p class="pull-right">31 reviews</p>
-                                <p>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                </p>
-                            </div>
+
                         </div>
                     </div>
 
