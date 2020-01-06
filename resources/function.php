@@ -8,9 +8,8 @@
 
     }
     function query($sql){
-global $connection;
+        global $connection;
       mysqli_query($connection , $sql);
-
     }
 
     function confirm($result){
@@ -33,11 +32,12 @@ global $connection;
 
 
 function get_products(){
+        global $connection;
+        $query = 'select * from products';
+    $result = mysqli_query($connection,$query);
+    confirm($result);
 
-    $query = query(" SELECT * FROM products");
-    confirm($query);
-
-    while ($row = fetch_array($query)) {
+    while ($row = fetch_array($result)) {
       $product = <<<DELI
 
     <div class="col-sm-4 col-lg-4 col-md-4">
