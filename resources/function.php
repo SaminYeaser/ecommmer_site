@@ -44,7 +44,7 @@ function get_products(){
                         <div class="thumbnail">
                             <img src="http://placehold.it/320*150" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
+                                <h4 class="pull-right">{$row['product_price']}</h4>
                                 <h4><a href="#">Third product</a></h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                                 <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
