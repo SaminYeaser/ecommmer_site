@@ -78,6 +78,40 @@ function get_category(){
     }
 
 }
+
+
+
+
+
+function get_products_with_cat_id(){
+    global $connection;
+    $query = 'select * from products';
+    $result = mysqli_query($connection,$query);
+    confirm($result);
+
+    while ($row = fetch_array($result)) {
+        $product = <<<DELI
+
+    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
+                            <div class="caption">
+                                <h4 class="pull-right">&#36;{$row['product_price']}</h4>
+                                <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a></h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                                <a class="btn btn-primary" target="_blank" href="item.php?id={$row['product_id']}">Add to Cart</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                
+
+DELI;
+        echo $product;
+
+    }
+}
 //getProduct
 
   // function get_products(){
