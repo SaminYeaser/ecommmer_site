@@ -82,7 +82,6 @@ function get_category(){
 
 
 
-
 function get_products_with_cat_id(){
     global $connection;
     $query = "select * from products where product_catagory_id = ". escape_string($_GET['id']) ." ";
@@ -111,6 +110,38 @@ DELI;
 
     }
 }
+
+
+
+function get_products_in_shop(){
+    global $connection;
+    $query = "select * from products ";
+    $result = mysqli_query($connection,$query);
+    confirm($result);
+
+    while ($row = fetch_array($result)) {
+        $product = <<<DELI
+
+    <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="{$row['product_image']}" alt="">
+                    <div class="caption">
+                        <h3>{$row['product_title']}</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+                
+
+DELI;
+        echo $product;
+
+    }
+}
+
 //getProduct
 
   // function get_products(){
