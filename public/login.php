@@ -3,6 +3,8 @@
 
 <?php include(TEMPLATE_FRONT . SAM ."header.php");?>
 
+<?php login_user();?>
+
     <!-- Page Content -->
     <div class="container">
 
