@@ -85,7 +85,7 @@ function get_category(){
 
 function get_products_with_cat_id(){
     global $connection;
-    $query = 'select * from products';
+    $query = "select * from products where product_category_id = ". escape_string($_GET['id']) ." ";
     $result = mysqli_query($connection,$query);
     confirm($result);
 
