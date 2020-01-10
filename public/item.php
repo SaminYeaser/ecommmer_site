@@ -9,6 +9,18 @@
 
     <?php include(TEMPLATE_FRONT . SAM ."sideNav.php")?>
 
+
+    <?php
+
+        $query = "SELECT * FROM products " ;
+       confirm($query);
+       $result= query($query);
+    while ($row = fetch_array($result)){
+            echo $row['product_price'];
+        }
+
+    ?>
+
 <div class="col-md-9">
 
 <!--Row For Image and Short Description-->

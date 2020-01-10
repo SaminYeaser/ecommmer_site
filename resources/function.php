@@ -9,7 +9,7 @@
     }
     function query($sql){
         global $connection;
-      mysqli_query($connection , $sql);
+     return mysqli_query($connection , $sql);
     }
 
     function confirm($result){
@@ -27,6 +27,7 @@
     }
 
     function fetch_array($result){
+
       return mysqli_fetch_array($result);
     }
 
