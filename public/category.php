@@ -27,7 +27,9 @@
         <!-- Page Features -->
         <div class="row text-center">
 
-            <?php echo get_products_with_cat_id();?>
+
+<?php get_products_with_cat_id();?>
+
 
         </div>
         <!-- /.row -->
