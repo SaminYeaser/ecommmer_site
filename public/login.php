@@ -3,13 +3,14 @@
 
 <?php include(TEMPLATE_FRONT . SAM ."header.php");?>
 
-<?php login_user();?>
+
 
     <!-- Page Content -->
     <div class="container">
 
       <header>
             <h1 class="text-center">Login</h1>
+          <h2><?php get_message();?></h2>
         <div class="col-sm-4 col-sm-offset-5">         
             <form class="" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group"><label for="">
@@ -27,7 +28,7 @@
 
 
     </header>
-
+        <?php login_user();?>
 
         </div>
 

@@ -2,6 +2,20 @@
 
 //helper
 
+    function set_message($msg){
+        if(!empty($msg)){
+            $_SESSION['message'] = $msg;
+        }else{
+            $msg ='';
+        }
+    }
+    function get_message(){
+        if(isset($_SESSION['message'])){
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+    }
+
     function redirect($location){
 
       header("location: $location");
@@ -150,10 +164,12 @@ function login_user(){
             $username = escape_string($_POST['username']);
             $password = escape_string($_POST['password']);
 
-            $query = query("select * from users where user_name ={$username} and user_pass = {$password}");
+            $query = query("select * from users where user_name = '{$username}' and user_pass = '{$password}'");
             confirm($query);
 
             if(mysqli_num_rows($query)==0){
+
+                set_message('Your password or username is wrong');
                 redirect('login.php');
             }else{
                 redirect('admin');
