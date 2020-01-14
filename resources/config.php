@@ -3,6 +3,8 @@
  ob_start();
 session_start();
 
+
+
 		 defined("SAM") ? null :define("SAM",DIRECTORY_SEPARATOR);
 
 		defined("TEMPLATE_FRONT") ? null :define("TEMPLATE_FRONT", __DIR__ .SAM."templates".SAM."front");

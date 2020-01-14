@@ -20,9 +20,11 @@
                     </div>
 
                 </div>
+<div class="row">
+
 
                 <?php get_products();?>
-
+</div>
                     <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like this template?</a>
                         </h4>
