@@ -3,13 +3,14 @@
 
 <?php include(TEMPLATE_FRONT . SAM ."header.php");?>
 
-
-
 <?php
 
-$_SESSION['product_']
+//echo $_SESSION['product_1'];
+
 
 ?>
+
+
 
 
 
@@ -20,7 +21,7 @@ $_SESSION['product_']
 <!-- /.row --> 
 
 <div class="row">
-
+<h1 class="text-center bg-primary"><?php get_message();?></h1>
       <h1>Checkout</h1>
 
 <form action="">
