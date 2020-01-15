@@ -1,4 +1,5 @@
 <?php require_once("../resources/config.php"); ?>
+<?php require_once("cart.php"); ?>
 
 
 <?php include(TEMPLATE_FRONT . SAM ."header.php");
@@ -29,22 +30,13 @@ echo $_SESSION['product_1'];
            <th>Price</th>
            <th>Quantity</th>
            <th>Sub-total</th>
-              <th>Remove</th>
-              <th>Delete</th>
+
 
      
           </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>apple</td>
-                <td>$23</td>
-                <td>3</td>
-                <td>2</td>
-                <td><a href="cart.php?remove=1">Remove</a></td>
-                <td><a href="cart.php?delete=1">Delete</a></td>
-              
-            </tr>
+            <?php cart();?>
         </tbody>
     </table>
 </form>

@@ -41,4 +41,28 @@ if(isset($_GET['delete'])){
     $_SESSION['product_'. $_GET['delete']] = 0;
     redirect("checkout.php");
 }
+
+
+function cart(){
+
+    $query = query("select * from products");
+    confirm($query);
+
+    while ($row= fetch_array($query)) {
+        $product = <<<DELI
+
+            <tr>
+                <td>{$row['product_title']}</td>
+                <td>{$row['product_price']}</td>
+                <td>3</td>
+                <td>2</td>
+                <td><a href="cart.php?remove=1">Remove</a></td>
+                <td><a href="cart.php?delete=1">Delete</a></td>
+              
+            </tr>
+
+DELI;
+        echo $product;
+    }
+}
 ?>
