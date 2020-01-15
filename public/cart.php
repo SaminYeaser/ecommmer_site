@@ -3,8 +3,10 @@
 
 <?php
 
-if(isset($_GET['add'])){
 
+
+
+if(isset($_GET['add'])){
 
     $query = query("select * from products where product_id=".escape_string($_GET['add'])." ");
     confirm($query);
@@ -25,11 +27,18 @@ if(isset($_GET['add'])){
 
     }
 
-
-//    redirect('index.php');
-
-
 }
 
-
+if(isset($_GET['remove'])){
+    $_SESSION['product_'.$_GET['remove']]--;
+    if($_SESSION['product_'.$_GET['remove']]<1){
+        redirect("checkout.php");
+    }else{
+        redirect("checkout.php");
+    }
+}
+if(isset($_GET['delete'])){
+    $_SESSION['product_'. $_GET['delete']] = 0;
+    redirect("checkout.php");
+}
 ?>
