@@ -56,8 +56,8 @@ function cart(){
                 <td>{$row['product_price']}</td>
                 <td>3</td>
                 <td>2</td>
-                <td><a href="cart.php?remove=1">Remove</a></td>
-                <td><a href="cart.php?delete=1">Delete</a></td>
+                <td><a class="btn btn-warning" href="cart.php?remove={$row['product_id']}"><span class="glyohicon glyphicon-minus"></span></a> <a class="btn btn-primary" href="cart.php?add={$row['product_id']}"><span class="glyphicon glyphicon-plus"></span></a> <a class="btn btn-danger" href="cart.php?delete={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+                
               
             </tr>
 
