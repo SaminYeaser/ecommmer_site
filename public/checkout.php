@@ -5,7 +5,7 @@
 <?php include(TEMPLATE_FRONT . SAM ."header.php");
 
 if(isset($_SESSION['product_1'])){
-echo $_SESSION['product_1'];
+//echo $_SESSION['product_1'];
 }
 
 ?>

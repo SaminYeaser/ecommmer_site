@@ -43,13 +43,21 @@ if(isset($_GET['delete'])){
 }
 
 
-function cart(){
+function cart()
+{
 
-    $query = query("select * from products");
-    confirm($query);
+    foreach ($_SESSION as $name => $value) {
 
-    while ($row= fetch_array($query)) {
-        $product = <<<DELI
+        if($value>0){
+            if (substr($name, 0, 8) == "product_") {
+                $length = strlen($name);
+                $id = substr($name, 8, $length);
+
+                $query = query("select * from products where product_id = ". escape_string($id) ." ");
+                confirm($query);
+
+                while ($row = fetch_array($query)) {
+                    $product = <<<DELI
 
             <tr>
                 <td>{$row['product_title']}</td>
@@ -62,7 +70,14 @@ function cart(){
             </tr>
 
 DELI;
-        echo $product;
-    }
+
+
+                    echo $product;
+                }
+            }
+        }
+
+}
+
 }
 ?>

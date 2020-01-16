@@ -3,7 +3,7 @@
  ob_start();
 session_start();
 
-
+//session_destroy();
 
 		 defined("SAM") ? null :define("SAM",DIRECTORY_SEPARATOR);
 
