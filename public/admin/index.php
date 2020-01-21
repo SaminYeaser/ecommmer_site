@@ -19,7 +19,19 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <?php require_once("../../resources/templates/back/admin_content.php")?>
+
+
+            <?php
+
+                if($_SERVER['REQUEST_URI'] === "/ecom/public/admin/" || $_SERVER['REQUEST_URI'] === "/ecom/public/admin/index.php" ){
+                    require_once("../../resources/templates/back/admin_content.php");
+                }
+
+            ?>
+
+
+
+<!--                --><?php //require_once("../../resources/templates/back/admin_content.php")?>
 
             </div>
             <!-- /.container-fluid -->
