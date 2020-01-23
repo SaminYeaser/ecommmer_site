@@ -172,6 +172,7 @@ function login_user(){
                 set_message('Your password or username is wrong');
                 redirect('login.php');
             }else{
+                $_SESSION['user_name'] = $username;
                 redirect('admin');
             }
         }

@@ -1,6 +1,17 @@
 <?php require_once("../../resources/config.php")?>
 <?php require_once("../../resources/templates/back/header.php")?>
 
+<?php
+
+if(!isset($_SESSION['user_name'])){
+    header('Location: http://localhost/ecom/public/');
+}
+
+
+
+?>
+
+
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -29,6 +40,16 @@
                 if(isset($_GET['orders'])){
                     require_once("../../resources/templates/back/orders.php");
                 }
+            if(isset($_GET['categories'])){
+                require_once("../../resources/templates/back/categories.php");
+            }
+            if(isset($_GET['products'])){
+                require_once("../../resources/templates/back/products.php");
+            }
+            if(isset($_GET['add_product'])){
+                require_once("../../resources/templates/back/add_product.php");
+            }
+
             ?>
 
 
