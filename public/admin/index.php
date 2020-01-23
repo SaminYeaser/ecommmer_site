@@ -1,6 +1,6 @@
 <?php require_once("../../resources/config.php")?>
 <?php require_once("../../resources/templates/back/header.php")?>
-<?php require_once("../../resources/templates/back/footer.php")?>
+
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -26,7 +26,9 @@
                 if($_SERVER['REQUEST_URI'] === "/ecom/public/admin/" || $_SERVER['REQUEST_URI'] === "/ecom/public/admin/index.php" ){
                     require_once("../../resources/templates/back/admin_content.php");
                 }
-
+                if(isset($_GET['orders'])){
+                    require_once("../../resources/templates/back/orders.php");
+                }
             ?>
 
 
@@ -41,5 +43,5 @@
 
     </div>
     <!-- /#wrapper -->
-
+<?php require_once("../../resources/templates/back/footer.php")?>
     <!-- jQuery -->
