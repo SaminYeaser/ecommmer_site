@@ -4,7 +4,7 @@
             <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li class="">
-            <a href="orders.php"><i class="fa fa-fw fa-dashboard"></i>Orders</a>
+            <a href="index.php?orders"><i class="fa fa-fw fa-dashboard"></i>Orders</a>
         </li>
         <li>
             <a href="products.html"><i class="fa fa-fw fa-bar-chart-o"></i> View Products</a>
