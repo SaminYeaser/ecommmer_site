@@ -22,4 +22,6 @@ session_start();
 		$connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
 		 require_once("function.php");
+		 require_once("cart.php");
+?>
  ?>
