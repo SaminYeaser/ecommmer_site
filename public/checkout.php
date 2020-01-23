@@ -1,14 +1,6 @@
 <?php require_once("../resources/config.php"); ?>
-<?php require_once("cart.php"); ?>
 
-
-<?php include(TEMPLATE_FRONT . SAM ."header.php");
-
-if(isset($_SESSION['product_1'])){
-//echo $_SESSION['product_1'];
-}
-
-?>
+<?php include(TEMPLATE_FRONT . SAM ."header.php"); ?>
 
 
 
