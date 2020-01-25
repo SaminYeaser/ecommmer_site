@@ -1,4 +1,4 @@
-<?php require_once("../resources/config.php"); ?>
+<?php header("http://localhost/ecom/resources/config.php"); ?>
 
 
 <?php
@@ -91,4 +91,42 @@ DELI;
 }
 
 }
+?>
+
+
+
+
+<?php
+
+function report()
+{
+    $total = 0;
+    $total_item = 0;
+
+    foreach ($_SESSION as $name => $value) {
+
+        if($value>0){
+            if (substr($name, 0, 8) == "product_") {
+                $length = strlen($name);
+                $id = substr($name, 8, $length);
+
+                $query = query("select * from products where product_id = ". escape_string($id) ." ");
+                confirm($query);
+
+                while ($row = fetch_array($query)) {
+                    $sub_total= $row['product_price'] * $value;
+                    $total_item += $value;
+
+                   $total += $sub_total;
+                   $total_item;
+                }
+
+            }
+        }
+
+    }
+
+}
+?>
+
 ?>
