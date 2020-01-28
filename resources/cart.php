@@ -1,4 +1,4 @@
-<?php header("http://localhost/ecom/resources/config.php"); ?>
+<?php require_once "../resources/config.php"; ?>
 
 
 <?php
@@ -113,17 +113,19 @@ function report()
                 $query = query("select * from products where product_id = ". escape_string($id) ." ");
                 confirm($query);
 
-                while ($row = fetch_array($query)) {
+                while ($row = mysqli_fetch_array($query)) {
                     $sub_total = $row['product_price'] * $value;
 
-                    $query = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
+                    $product_price = $row['product_price'];
+                    $product_quantity = $row['product_quantity'];
+                    $query = query("insert into reports(product_id, product_price,product_quantity) values('{$id}','{$product_price}','{$product_quantity}')");
                     confirm($query);
 
                 }
 
                     $total_item += $value;
                    $total += $sub_total;
-                   echo $total;
+                   echo $total_item;
                 }
 
             }

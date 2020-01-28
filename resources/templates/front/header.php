@@ -31,5 +31,5 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <?php include(TEMPLATE_FRONT . SAM ."topNav.php")?>
+      <?php include(TEMPLATE_FRONT . SAM ."topNav.php");?>
     </nav>
