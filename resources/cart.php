@@ -114,17 +114,20 @@ function report()
                 confirm($query);
 
                 while ($row = fetch_array($query)) {
-                    $sub_total= $row['product_price'] * $value;
-                    $total_item += $value;
+                    $sub_total = $row['product_price'] * $value;
 
+                    $query = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
+                    confirm($query);
+
+                }
+
+                    $total_item += $value;
                    $total += $sub_total;
-                   $total_item;
+                   echo $total;
                 }
 
             }
         }
-
-    }
 
 }
 ?>

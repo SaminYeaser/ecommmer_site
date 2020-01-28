@@ -1,6 +1,6 @@
 <?php
 require_once("../resources/config.php");
-include ("../../resources/templates/back/header.php");
+include ("../resources/templates/back/header.php");
 
 ?>
 
@@ -21,6 +21,10 @@ if(isset($_GET['tx'])){
 
     //session_destroy();
 
+}else{
+    redirect("index.php");
 }
 
 ?>
+
+<?php include ("../../resources/templates/back/footer.php");?>
