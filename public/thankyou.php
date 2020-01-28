@@ -1,7 +1,7 @@
 <?php
 require_once("../resources/config.php");
-include ("../resources/templates/back/header.php");
-
+include ("../resources/templates/front/header.php");
+require_once ("../resources/cart.php");
 ?>
 
 <?php
@@ -27,4 +27,4 @@ if(isset($_GET['tx'])){
 
 ?>
 
-<?php include ("../../resources/templates/back/footer.php");?>
+<?php include ("../resources/templates/back/footer.php");?>
