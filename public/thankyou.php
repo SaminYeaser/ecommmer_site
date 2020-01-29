@@ -27,4 +27,4 @@ if(isset($_GET['tx'])){
 
 ?>
 
-<?php include ("../resources/templates/back/footer.php");?>
+<?php //include ("../resources/templates/front/footer.php");?>

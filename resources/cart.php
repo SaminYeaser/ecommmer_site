@@ -100,6 +100,7 @@ DELI;
 
 function report()
 {
+    global $connection;
     $total = 0;
     $total_item = 0;
 
@@ -110,10 +111,10 @@ function report()
                 $length = strlen($name);
                 $id = substr($name, 8, $length);
 
-                $query = query("select * from products where product_id = ". escape_string($id) ." ");
-                confirm($query);
+                $query1 = query("select * from products where product_id = ".escape_string($id));
+                confirm($query1);
 
-                while ($row = mysqli_fetch_array($query)) {
+                while ($row = fetch_array($query1)) {
                     $sub_total = $row['product_price'] * $value;
 
                     $product_price = $row['product_price'];
