@@ -100,18 +100,27 @@ DELI;
 
 function report()
 {
+if(isset($_GET['tx'])){
+    $amount = $_GET['amt'];
+    $currency = $_GET['cc'];
+    $transaction = $_GET['tx'];
+    $status = $_GET['st'];
+
+    $query = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
+    confirm($query);
+
     global $connection;
     $total = 0;
     $total_item = 0;
 
     foreach ($_SESSION as $name => $value) {
 
-        if($value>0){
+        if ($value > 0) {
             if (substr($name, 0, 8) == "product_") {
                 $length = strlen($name);
                 $id = substr($name, 8, $length);
 
-                $query1 = query("select * from products where product_id = ".escape_string($id));
+                $query1 = query("select * from products where product_id = " . escape_string($id));
                 confirm($query1);
 
                 while ($row = fetch_array($query1)) {
@@ -124,13 +133,17 @@ function report()
 
                 }
 
-                    $total_item += $value;
-                   $total += $sub_total;
-                   echo $total_item;
-                }
-
+                $total_item += $value;
+                $total += $sub_total;
+                echo $total_item;
             }
+
         }
+    }
+    //session_destroy();
+        }else{
+    redirect("index.php");
+}
 
 }
 ?>
