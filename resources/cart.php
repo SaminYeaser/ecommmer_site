@@ -106,8 +106,8 @@ if(isset($_GET['tx'])){
     $transaction = $_GET['tx'];
     $status = $_GET['st'];
 
-    $query = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
-    confirm($query);
+    $send_order = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
+    confirm($send_order);
 
     global $connection;
     $total = 0;
@@ -122,6 +122,8 @@ if(isset($_GET['tx'])){
 
                 $query1 = query("select * from products where product_id = " . escape_string($id));
                 confirm($query1);
+
+//                $last_id =
 
                 while ($row = fetch_array($query1)) {
                     $sub_total = $row['product_price'] * $value;
