@@ -110,8 +110,7 @@ if(isset($_GET['tx'])){
 
     $send_order = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
     confirm($send_order);
-    $last_id = mysqli_insert_id($connection);
-    echo $last_id;
+    $last_id = last_id();
 
     $total = 0;
     $total_item = 0;
@@ -132,7 +131,7 @@ if(isset($_GET['tx'])){
 
                     $product_price = $row['product_price'];
                     $product_quantity = $row['product_quantity'];
-                    $query = query("insert into reports(product_id, product_price,product_quantity) values('{$id}','{$product_price}','{$product_quantity}')");
+                    $query = query("insert into reports(product_id,order_id, product_price,product_quantity) values('{$id}','{$last_id}','{$product_price}','{$product_quantity}')");
                     confirm($query);
 
                 }
