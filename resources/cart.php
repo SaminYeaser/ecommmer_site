@@ -123,7 +123,7 @@ if(isset($_GET['tx'])){
                 $query1 = query("select * from products where product_id = " . escape_string($id));
                 confirm($query1);
 
-//                $last_id =
+                $last_id = mysqli_insert_id($connection);
 
                 while ($row = fetch_array($query1)) {
                     $sub_total = $row['product_price'] * $value;
