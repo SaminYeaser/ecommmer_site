@@ -98,8 +98,10 @@ DELI;
 
 <?php
 
-function report()
-{
+function report(){
+    global $connection;
+
+
 if(isset($_GET['tx'])){
     $amount = $_GET['amt'];
     $currency = $_GET['cc'];
@@ -108,8 +110,9 @@ if(isset($_GET['tx'])){
 
     $send_order = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
     confirm($send_order);
+    $last_id = mysqli_insert_id($connection);
+    echo $last_id;
 
-    global $connection;
     $total = 0;
     $total_item = 0;
 
@@ -123,7 +126,6 @@ if(isset($_GET['tx'])){
                 $query1 = query("select * from products where product_id = " . escape_string($id));
                 confirm($query1);
 
-                $last_id = mysqli_insert_id($connection);
 
                 while ($row = fetch_array($query1)) {
                     $sub_total = $row['product_price'] * $value;
