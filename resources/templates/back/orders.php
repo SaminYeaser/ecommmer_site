@@ -24,13 +24,12 @@
     <thead>
 
       <tr>
-           <th>S.N</th>
-           <th>Title</th>
-           <th>Photo</th>
-           <th>Quantity</th>
-           <th>Invoice Number</th>
-           <th>Order Date</th>
+           <th>id</th>
+           <th>Amount</th>
+           <th>Transaction</th>
+           <th>Currency</th>
            <th>Status</th>
+
       </tr>
     </thead>
     <tbody>
