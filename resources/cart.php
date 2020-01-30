@@ -108,10 +108,6 @@ if(isset($_GET['tx'])){
     $transaction = $_GET['tx'];
     $status = $_GET['st'];
 
-    $send_order = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
-    confirm($send_order);
-    $last_id = last_id();
-
     $total = 0;
     $total_item = 0;
 
@@ -122,28 +118,33 @@ if(isset($_GET['tx'])){
                 $length = strlen($name);
                 $id = substr($name, 8, $length);
 
+                $send_order = query("insert into orders(order_amount, order_transaction,order_status,order_currency) values('{$amount}','{$transaction}','{$status}','{$currency}')");
+                confirm($send_order);
+                $last_id = last_id();
+
+
                 $query1 = query("select * from products where product_id = " . escape_string($id));
                 confirm($query1);
 
 
                 while ($row = fetch_array($query1)) {
                     $sub_total = $row['product_price'] * $value;
-
+                    $product_name = $row['product_title'];
                     $product_price = $row['product_price'];
                     $product_quantity = $row['product_quantity'];
-                    $query = query("insert into reports(product_id,order_id, product_price,product_quantity) values('{$id}','{$last_id}','{$product_price}','{$product_quantity}')");
+                    $query = query("insert into reports(product_id,order_id, product_title,product_price,product_quantity) values('{$id}','{$last_id}','{$product_name}','{$product_price}','{$product_quantity}')");
                     confirm($query);
 
                 }
 
                 $total_item += $value;
                 $total += $sub_total;
-                echo $total_item;
+               // echo $total_item;
             }
 
         }
     }
-    //session_destroy();
+    session_destroy();
         }else{
     redirect("index.php");
 }
