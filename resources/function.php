@@ -185,6 +185,26 @@ function login_user(){
 }
 
 
+function display(){
+    $query = query("select * from orders");
+    confirm($query);
+
+    while ($row = fetch_array($query)){
+        $orders = <<<DELI
+
+    <tr>
+    <td>{$row['order_id']}</td>
+    <td>{$row['order_amount']}</td>
+    <td>{$row['order_transaction']}</td>
+    <td>{$row['order_currency']}</td>
+    <td>{$row['order_status']}</td>
+</tr>
+
+DELI;
+        echo  $orders;
+    }
+}
+
 //getProduct
 
   // function get_products(){
