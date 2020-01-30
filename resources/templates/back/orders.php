@@ -8,9 +8,9 @@
             <div class="container-fluid">
 
 
-                
 
 
+                <h2 class="text-center "><?php get_message();?></h2>
         <div class="col-md-12">
 <div class="row">
 <h1 class="page-header">
@@ -20,6 +20,7 @@
 </div>
 
 <div class="row">
+
 <table class="table table-hover">
     <thead>
 
@@ -29,6 +30,7 @@
            <th>Transaction</th>
            <th>Currency</th>
            <th>Status</th>
+           <th>Delete</th>
 
       </tr>
     </thead>
