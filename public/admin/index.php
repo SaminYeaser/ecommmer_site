@@ -32,6 +32,9 @@ if(!isset($_SESSION['user_name'])){
             if(isset($_GET['add_product'])){
                 require_once("../../resources/templates/back/add_product.php");
             }
+            if(isset($_GET['edit_product'])){
+                require_once("../../resources/templates/back/edit_product.php");
+            }
 
             ?>
 
