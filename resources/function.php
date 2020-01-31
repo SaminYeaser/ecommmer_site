@@ -227,18 +227,19 @@ function get_product_in_admin(){
     confirm($result);
 
     while ($row = fetch_array($result)) {
+      $cat_title = showing_title_name($row['product_catagory_id']);
         $product = <<<DELI
 
          <tr>
             <td>{$row['product_id']}</td>
             <td>{$row['product_title']}<br>
-              <a href="index.php?edit_product&id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
+            <a href="index.php?edit_product&id={$row['product_id']}"><img src="../../resources/uploads/{$row['product_image']}" alt=""></a>
             </td>
-            <td>{$row['product_catagory_id']}</td>
+            <td>$cat_title</td>
             <td>{$row['product_price']}</td>
             <td>{$row['product_quantity']}</td>
             <td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
-
+            <td><a href="index.php?edit_product&id={$row['product_id']}">Edit</a></td>
          </tr>
                 
 
@@ -267,7 +268,8 @@ function add_product(){
         $product_image = escape_string($_FILES['file']['name']);
         $tmp_image = escape_string($_FILES['file']['tmp_name']);
 
-        move_uploaded_file($tmp_image,IMAGE_DIRECTORY. SAM . $product_image);
+
+        move_uploaded_file($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
 
         $query = query("insert into products(product_title,product_catagory_id,product_price,product_description,product_quantity,short_desc,product_image) values('{$product_title}','{$product_category_id}','{$product_price}','{$product_description}','{$product_quantity}','{$short_desc}','{$product_image}')");
         confirm($query);
@@ -294,5 +296,52 @@ function show_category(){
     }
 
 }
+
+function showing_title_name($product_category_id){
+    $query = query("select * from catagories where cat_id = '{$product_category_id}'");
+    confirm($query);
+    while ($row = fetch_array($query)){
+        return $row['cat_title'];
+    }
+}
+
+
+//updating prodcut
+
+
+function edit_product(){
+    global $connection;
+    if(isset($_POST['update'])){
+        $product_title = escape_string($_POST['product_title']);
+        $product_description = escape_string($_POST['product_description']);
+        $product_price = escape_string($_POST['product_price']);
+        $product_category_id = escape_string($_POST['product_category_id']);
+        $product_quantity = escape_string($_POST['product_quantity']);
+        $short_desc = escape_string($_POST['short_desc']);
+        $product_image = escape_string($_FILES['file']['name']);
+        $tmp_image = escape_string($_FILES['file']['tmp_name']);
+
+
+        move_uploaded_file($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
+
+        $query = "update products set ";
+        $query .= "product_title = '{$product_title}',";
+        $query .= "product_catagory_id = '{$product_category_id}',";
+        $query .= "product_price = '{$product_price}',";
+        $query .= "product_description = '{$product_description}',";
+        $query .= "product_quantity = '{$product_quantity}',";
+        $query .= "short_desc = '{$short_desc}',";
+        $query .= "product_image = '{$product_image}'";
+        $query .= "where product_id=". escape_string($_GET['id']);
+
+        $query_work = mysqli_query($connection, $query) ;
+
+        confirm($query_work);
+
+        set_message('Product has been Updated');
+        redirect('index.php?products');
+    }
+}
+
 
 ?>
