@@ -234,7 +234,7 @@ function get_product_in_admin(){
             <td>{$row['product_title']}<br>
               <a href="index.php?edit_product&id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
             </td>
-            <td>Category</td>
+            <td>{$row['product_catagory_id']}</td>
             <td>{$row['product_price']}</td>
             <td>{$row['product_quantity']}</td>
             <td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
@@ -276,4 +276,23 @@ function add_product(){
         redirect('index.php?products');
     }
 }
+
+
+function show_category(){
+
+    global $connection;
+
+    $query = "SELECT * FROM catagories";
+    $send_query = mysqli_query($connection, $query);
+
+    if(!$send_query){
+        die("Conncetion Failed". mysqli_error($connection));
+    }
+
+    while($row = mysqli_fetch_array($send_query)){
+        echo "<option value=\"{$row['cat_id']}\">{$row['cat_title']}</option>";
+    }
+
+}
+
 ?>

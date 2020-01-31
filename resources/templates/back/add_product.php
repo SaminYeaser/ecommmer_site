@@ -70,9 +70,9 @@
     <div class="form-group">
          <label for="product-title">Product Category</label>
 
-        <select name="product_category" id="" class="form-control">
+        <select name="product_category_id" id="" class="form-control">
             <option value="">Select Category</option>
-           
+           <?php show_category();?>
         </select>
 
 
