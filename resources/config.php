@@ -7,10 +7,11 @@ session_start();
 
 		 defined("SAM") ? null :define("SAM",DIRECTORY_SEPARATOR);
 
-		defined("TEMPLATE_FRONT") ? null :define("TEMPLATE_FRONT", __DIR__ .SAM."templates".SAM."front");
+		defined("TEMPLATE_FRONT") ? null :define("TEMPLATE_FRONT", __DIR__ . SAM ."templates".SAM."front");
 		defined("TEMPLATE_BACK") ? null :define("TEMPLATE_BACK", __DIR__ . SAM ."templates".SAM."back");
+        defined("IMAGE_DIRECTORY") ? null :define("IMAGE_DIRECTORY", __DIR__ . SAM ."uploads");
 
-		// echo TEMPLATE_FRONT."</br>";
+// echo TEMPLATE_FRONT."</br>";
 		// echo TEMPLATE_BACK."</br>";
 		// echo SAM;
 

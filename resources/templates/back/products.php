@@ -62,28 +62,7 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/ecom/public/admin/index.php?orders"><i class="fa fa-fw fa-wrench"></i>Orders</a>
-
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Add Product</a>
-                    </li>
-                    
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Categories</a>
-                    </li>
-                    <li>
-                        <a href="http://localhost/ecom/public/admin/index.php?products"><i class="fa fa-fw fa-bar-chart-o"></i> View Products</a>
-                    </li>
-                
-                </ul>
-            </div>
+            <?php  require_once ("side_nav.php")?>
             <!-- /.navbar-collapse -->
         </nav>
 
@@ -97,7 +76,7 @@
    All Products
 
 </h1>
-                 <h2 class="text-center"><?php get_message();?></h2>
+                 <h2 class="text-center bg-danger"><?php get_message();?></h2>
 <table class="table table-hover">
 
 

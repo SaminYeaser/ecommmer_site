@@ -10,7 +10,7 @@
             <a href="http://localhost/ecom/public/admin/index.php?products"><i class="fa fa-fw fa-bar-chart-o"></i> View Products</a>
         </li>
         <li>
-            <a href="add_product.html"><i class="fa fa-fw fa-table"></i> Add Product</a>
+            <a href="index.php?add_product"><i class="fa fa-fw fa-table"></i> Add Product</a>
         </li>
 
         <li>

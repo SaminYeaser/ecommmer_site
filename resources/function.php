@@ -266,6 +266,14 @@ function add_product(){
         $short_desc = escape_string($_POST['short_desc']);
         $product_image = escape_string($_FILES['file']['name']);
         $tmp_image = escape_string($_FILES['file']['tmp_name']);
+
+        move_uploaded_file($tmp_image,IMAGE_DIRECTORY. SAM . $product_image);
+
+        $query = query("insert into products(product_title,product_catagory_id,product_price,product_description,product_quantity,short_desc,product_image) values('{$product_title}','{$product_category_id}','{$product_price}','{$product_description}','{$product_quantity}','{$short_desc}','{$product_image}')");
+        confirm($query);
+
+        set_message('Product is Added');
+        redirect('index.php?products');
     }
 }
 ?>
