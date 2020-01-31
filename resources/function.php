@@ -250,6 +250,22 @@ DELI;
 
 }
 
-
 ?>
 
+<!--adding prducts-->
+
+<?php
+
+function add_product(){
+    if(isset($_POST['publish'])){
+        $product_title = escape_string($_POST['product_title']);
+        $product_description = escape_string($_POST['product_description']);
+        $product_price = escape_string($_POST['product_price']);
+        $product_category_id = escape_string($_POST['product_category_id']);
+        $product_quantity = escape_string($_POST['product_quantity']);
+        $short_desc = escape_string($_POST['short_desc']);
+        $product_image = escape_string($_FILES['file']['name']);
+        $tmp_image = escape_string($_FILES['file']['tmp_name']);
+    }
+}
+?>
