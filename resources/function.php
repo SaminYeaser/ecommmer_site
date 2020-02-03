@@ -233,7 +233,7 @@ function get_product_in_admin(){
          <tr>
             <td>{$row['product_id']}</td>
             <td>{$row['product_title']}<br>
-            <a href="index.php?edit_product&id={$row['product_id']}"><img src="../../resources/uploads/{$row['product_image']}" alt=""></a>
+            <a href="index.php?edit_product&id={$row['product_id']}"><img width="100px" height="100px" src="../../resources/uploads/{$row['product_image']}" alt=""></a>
             </td>
             <td>$cat_title</td>
             <td>{$row['product_price']}</td>
@@ -269,7 +269,7 @@ function add_product(){
         $tmp_image = escape_string($_FILES['file']['tmp_name']);
 
 
-        move_uploaded_file($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
+        copy($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
 
         $query = query("insert into products(product_title,product_catagory_id,product_price,product_description,product_quantity,short_desc,product_image) values('{$product_title}','{$product_category_id}','{$product_price}','{$product_description}','{$product_quantity}','{$short_desc}','{$product_image}')");
         confirm($query);
@@ -322,7 +322,7 @@ function edit_product(){
         $tmp_image = escape_string($_FILES['file']['tmp_name']);
 
 
-        move_uploaded_file($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
+        copy($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
 
         $query = "update products set ";
         $query .= "product_title = '{$product_title}',";
