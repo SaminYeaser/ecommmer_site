@@ -2,10 +2,10 @@
 
 //helper
 
-function last_id(){
+    function last_id(){
     global $connection;
     return mysqli_insert_id($connection);
-}
+    }
 
 
     function set_message($msg){
@@ -52,7 +52,7 @@ function last_id(){
     }
 
 
-function get_products(){
+    function get_products(){
         global $connection;
         $query = 'select * from products';
     $result = mysqli_query($connection,$query);
@@ -63,7 +63,7 @@ function get_products(){
 
     <div class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
+                            <a href="item.php?id={$row['product_id']}"><img width="200" height="200" src="{$row['product_image']}" alt=""></a>
                             <div class="caption">
                                 <h4 class="pull-right">&#36;{$row['product_price']}</h4>
                                 <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a></h4>
@@ -82,7 +82,7 @@ DELI;
     }
 }
 
-function get_category(){
+    function get_category(){
 
         global $connection;
 
@@ -102,7 +102,7 @@ function get_category(){
 
 
 
-function get_products_with_cat_id(){
+    function get_products_with_cat_id(){
     global $connection;
     $query = "select * from products where product_catagory_id = ". escape_string($_GET['id']) ." ";
     $result = mysqli_query($connection,$query);
@@ -133,7 +133,7 @@ DELI;
 
 
 
-function get_products_in_shop(){
+    function get_products_in_shop(){
     global $connection;
     $query = "select * from products ";
     $result = mysqli_query($connection,$query);
@@ -164,7 +164,7 @@ DELI;
 
 
 
-function login_user(){
+    function login_user(){
 
         if(isset($_POST['submit'])){
             $username = escape_string($_POST['username']);
@@ -185,7 +185,7 @@ function login_user(){
 }
 
 
-function display(){
+    function display(){
     $query = query("select * from orders");
     confirm($query);
 
@@ -207,18 +207,17 @@ DELI;
 }
 
 
- ?>
 
 
 
 
-<!--////////////////////////////////Admin Product functions-->
-<!--//getProduct-->
+//<!--////////////////////////////////Admin Product functions-->
+//<!--//getProduct-->
 
 
-<?php
 
-function get_product_in_admin(){
+
+    function get_product_in_admin(){
 
 
     global $connection;
@@ -251,13 +250,13 @@ DELI;
 
 }
 
-?>
 
-<!--adding prducts-->
 
-<?php
+//<!--adding prducts-->
 
-function add_product(){
+
+
+    function add_product(){
     if(isset($_POST['publish'])){
         $product_title = escape_string($_POST['product_title']);
         $product_description = escape_string($_POST['product_description']);
@@ -280,7 +279,7 @@ function add_product(){
 }
 
 
-function show_category(){
+    function show_category(){
 
     global $connection;
 
@@ -297,7 +296,7 @@ function show_category(){
 
 }
 
-function showing_title_name($product_category_id){
+    function showing_title_name($product_category_id){
     $query = query("select * from catagories where cat_id = '{$product_category_id}'");
     confirm($query);
     while ($row = fetch_array($query)){
@@ -309,7 +308,7 @@ function showing_title_name($product_category_id){
 //updating prodcut
 
 
-function edit_product(){
+    function edit_product(){
     global $connection;
     if(isset($_POST['update'])){
 
@@ -354,5 +353,37 @@ function edit_product(){
     }
 }
 
+
+
+
+//<!--***********************-->
+//<!--categories-->
+
+
+
+
+    function show_categories(){
+
+    $query = query('select * from catagories');
+    confirm($query);
+
+    while ($row = fetch_array($query)){
+        $cat_id = $row['cat_id'];
+        $cat_title = $row['cat_title'];
+
+       $show_category =  <<<DELI
+            <tr>
+                <td>{$cat_id}</td>
+                <td>{$cat_title}</td>
+            </tr>
+DELI;
+       echo $show_category;
+
+    }
+}
+
+    function add_category(){
+
+}
 
 ?>
