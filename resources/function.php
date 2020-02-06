@@ -375,6 +375,7 @@ DELI;
             <tr>
                 <td>{$cat_id}</td>
                 <td>{$cat_title}</td>
+                <td><a href="../../resources/templates/back/delete_category.php?id={$row['cat_id']}">Delete</a></td>
             </tr>
 DELI;
        echo $show_category;
@@ -382,8 +383,20 @@ DELI;
     }
 }
 
-    function add_category(){
+    function add_category()
+    {
+        if (isset($_POST['Add_Category'])) {
 
-}
+            $cat_title = escape_string($_POST['cat_title']);
+            if(empty($cat_title) || $cat_title == ""){
+                echo "<h2 class='bg-danger'>Can not be Empty</h2>";
+            }else {
+                $query = query("insert into catagories(cat_title) values ('{$cat_title}')");
+                confirm($query);
+
+                set_message('New Category Added ');
+            }
+        }
+    }
 
 ?>
