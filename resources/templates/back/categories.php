@@ -11,19 +11,20 @@
 
 </h1>
 
-
+<!--<h1 class="bg-danger text-center">--><?php //get_message();?><!--</h1>-->
 <div class="col-md-4">
-    
+
+    <?php add_category(); ?>
     <form action="" method="post">
     
         <div class="form-group">
             <label for="category-title">Title</label>
-            <input type="text" class="form-control">
+            <input name="cat_title" type="text" class="form-control">
         </div>
 
         <div class="form-group">
             
-            <input type="submit" class="btn btn-primary" value="Add Category">
+            <input name="Add_Category" type="submit" class="btn btn-primary" value="Add Category">
         </div>      
 
 
@@ -34,13 +35,14 @@
 
 
 <div class="col-md-8">
-
+<h1 class="bg-danger text-center"><?php get_message();?></h1>
     <table class="table">
             <thead>
 
         <tr>
             <th>id</th>
             <th>Title</th>
+            <th>Delete</th>
         </tr>
             </thead>
 
