@@ -129,7 +129,7 @@ edit_product();
             <!-- Product Image -->
             <div class="form-group">
                 <label for="product-title">Product Image</label>
-                <input type="file" name="file">
+                <input type="file" name="file" value="<?php echo $product_image?>">
 
             </div>
 

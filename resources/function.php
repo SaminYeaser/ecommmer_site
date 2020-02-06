@@ -324,12 +324,16 @@ function edit_product(){
 
         if(empty($product_image)){
             $getPicture = "select product_image from products where product_id=".escape_string($_GET['id'])." ";
-            while ($row = fetch_array($getPicture)){
-               $product_image = $row;
+
+            $getPic = mysqli_query($connection, $getPicture);
+            confirm($getPic);
+            while ($row = fetch_array($getPic)){
+               $product_image = $row['product_image'];
+             //  copy($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
             }
         }
 
-        copy($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
+        move_uploaded_file($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
 
         $query = "update products set ";
         $query .= "product_title = '{$product_title}',";
