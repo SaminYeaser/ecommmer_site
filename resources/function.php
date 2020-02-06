@@ -312,6 +312,7 @@ function showing_title_name($product_category_id){
 function edit_product(){
     global $connection;
     if(isset($_POST['update'])){
+
         $product_title = escape_string($_POST['product_title']);
         $product_description = escape_string($_POST['product_description']);
         $product_price = escape_string($_POST['product_price']);
@@ -321,6 +322,12 @@ function edit_product(){
         $product_image = escape_string($_FILES['file']['name']);
         $tmp_image = escape_string($_FILES['file']['tmp_name']);
 
+        if(empty($product_image)){
+            $getPicture = "select product_image from products where product_id=".escape_string($_GET['id'])." ";
+            while ($row = fetch_array($getPicture)){
+               $product_image = $row;
+            }
+        }
 
         copy($tmp_image, IMAGE_DIRECTORY . SAM . $product_image);
 
