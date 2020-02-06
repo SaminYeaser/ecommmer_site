@@ -41,5 +41,5 @@
     <?php require_once ("top_nav.php")?>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <?php require_once ("side_nav.php")?>
-        <!-- /.navbar-collapse -->
+
     </nav>
