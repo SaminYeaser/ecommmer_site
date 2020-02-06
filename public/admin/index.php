@@ -42,13 +42,13 @@ if(!isset($_SESSION['user_name'])){
 
 <!--                --><?php //require_once("../../resources/templates/back/admin_content.php")?>
 
-            </div>
+<!--            </div>-->
             <!-- /.container-fluid -->
 
-        </div>
+<!--        </div>-->
         <!-- /#page-wrapper -->
 
-    </div>
+<!--    </div>-->
     <!-- /#wrapper -->
 <?php require_once("../../resources/templates/back/footer.php")?>
     <!-- jQuery -->
