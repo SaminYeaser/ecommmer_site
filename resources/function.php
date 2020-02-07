@@ -420,4 +420,50 @@ DELI;
 
         }
     }
+
+function add_user()
+{
+    if (isset($_POST['add_user'])) {
+
+        $cat_title = escape_string($_POST['cat_title']);
+        if(empty($cat_title) || $cat_title == ""){
+            echo "<h2 class='bg-danger'>Can not be Empty</h2>";
+        }else {
+            $query = query("insert into catagories(cat_title) values ('{$cat_title}')");
+            confirm($query);
+
+            set_message('New Category Added ');
+        }
+    }
+}
+    function get_reports(){
+        $query = query("select * from reports");
+        confirm($query);
+
+        while ($row = fetch_array($query)){
+            $report_id = $row['report_id'];
+            $order_id = $row['order_id'];
+            $product_title = $row['product_title'];
+            $product_id = $row['product_id'];
+            $product_quantity = $row['product_quantity'];
+
+
+            $report = <<<deli
+
+            <tr>
+           <td>{$report_id}</td>
+           <td>{$order_id}</td>
+           <td>{$product_title}</td>
+           <td>{$product_id}</td>
+           <td>{$product_quantity}</td>
+           <td><a href="../../resources/templates/back/delete_report.php?id={$row['report_id']}"><span class="glyphicon glyphicon-remove"></span>Delete</a></td>
+      </tr>
+
+
+deli;
+echo $report;
+
+        }
+    }
+
 ?>
