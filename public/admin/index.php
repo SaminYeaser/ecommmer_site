@@ -38,7 +38,9 @@ if(!isset($_SESSION['user_name'])){
             if(isset($_GET['users'])){
                 require_once("users.php");
             }
-
+            if(isset($_GET['reports'])){
+                require_once("../../resources/templates/back/reports.php");
+            }
             ?>
 
 
