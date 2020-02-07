@@ -399,4 +399,25 @@ DELI;
         }
     }
 
+    function show_users(){
+        $query = query('select * from users');
+        confirm($query);
+
+        while ($row = fetch_array($query)){
+            $user_id = $row['user_id'];
+            $user_name = $row['user_name'];
+            $email = $row['user_email'];
+            $password = $row['user_pass'];
+            $show_users =  <<<DELI
+            <tr>
+                <td>{$user_id}</td>
+                <td>{$user_name}</td>
+                <td>{$email}</td>
+                <td><a href="../../resources/templates/back/delete_users.php?id={$row['user_id']}">Delete</a></td>
+            </tr>
+DELI;
+            echo $show_users;
+
+        }
+    }
 ?>
